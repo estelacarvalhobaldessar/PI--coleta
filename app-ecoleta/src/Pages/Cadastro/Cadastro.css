@@ -1,0 +1,95 @@
+.cadastro-container{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.cadastro-card{
+padding:40px;
+border-radius:16px;
+background:#151319;
+border:1px solid #2a2733;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.cadastro-card h1{
+text-align:center;
+margin-bottom:10px;
+color:#d7ced1;
+font-size:32px;
+}
+
+.cadastro-card h2{
+text-align:center;
+margin:0;
+color:#f6f5f8;
+font-size:26px;
+}
+
+.cadastro-subtitle{
+text-align:center;
+color:#a39fae;
+margin:8px 0 30px;
+}
+
+.cadastro-input-group{
+display:flex;
+flex-direction:column;
+margin-bottom:18px;
+}
+
+.cadastro-input-group label{
+color:#f6f5f8;
+margin-bottom:8px;
+font-size:14px;
+}
+
+.cadastro-input-group input{
+padding:13px 15px;
+border-radius:8px;
+border:1px solid #2a2733;
+background:#0b0b0f;
+color:#f6f5f8;
+font-size:15px;
+outline:none;
+}
+
+.cadastro-input-group input:focus{
+border-color:#A7D533;
+}
+
+.cadastro-button{
+width:100%;
+padding:13px;
+border:none;
+border-radius:8px;
+background:#A7D533;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin-top:5px;
+}
+
+.cadastro-button:hover{
+opacity:0.9;
+}
+
+.login-link{
+display:flex;
+justify-content:center;
+gap:5px;
+margin-top:25px;
+color:#a39fae;
+font-size:14px;
+}
+
+.login-link button{
+border:none;
+background:none;
+color:#A7D533;
+cursor:pointer;
+font-weight:bold;
+}
