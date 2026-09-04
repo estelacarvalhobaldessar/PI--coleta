@@ -91,7 +91,7 @@ class Usuario
         }
 
         // Nunca enviar a senha para o React
-        unset($usuario["senha"]);
+        unset($usuario["Senha"]);
 
         return [
             "sucesso" => true,

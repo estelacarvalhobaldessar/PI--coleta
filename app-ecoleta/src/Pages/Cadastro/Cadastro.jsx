@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+
 import "./Cadastro.css";
 
 function Cadastro({ onLogin }) {
@@ -6,6 +8,7 @@ function Cadastro({ onLogin }) {
   const [email, setEmail] = useState("");
   const [cep, setCep] = useState("");
   const [senha, setSenha] = useState("");
+  const [carregando, setCarregando] = useState(false);
 
   function handleCep(event) {
     let valor = event.target.value.replace(/\D/g, "");
@@ -21,7 +24,7 @@ function Cadastro({ onLogin }) {
     setCep(valor);
   }
 
-  function handleCadastro(event) {
+  async function handleCadastro(event) {
     event.preventDefault();
 
     if (!nome || !email || !cep || !senha) {
@@ -34,14 +37,53 @@ function Cadastro({ onLogin }) {
       return;
     }
 
-    console.log({
-      nome,
-      email,
-      cep,
-      senha
-    });
+    try {
+      setCarregando(true);
 
-    alert("Cadastro realizado!");
+      const dados = {
+        acao: "cadastrar",
+        id: "",
+        email: email,
+        nome: nome,
+        cep: cep,
+        senha: senha
+      };
+
+      const resposta = await fetch(
+        "http://localhost:8080/user-api-php/usuarios.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(dados)
+        }
+      );
+
+      const resultado = await resposta.text();
+
+      console.log("Resposta da API:", resultado);
+
+      if (!resposta.ok) {
+        throw new Error(
+          resultado.mensagem || "Erro ao realizar o cadastro."
+        );
+      }
+
+      alert("Cadastro realizado com sucesso!");
+
+      setNome("");
+      setEmail("");
+      setCep("");
+      setSenha("");
+
+      onLogin();
+    } catch (erro) {
+      console.error("Erro no cadastro:", erro);
+      alert(erro.message || "Não foi possível realizar o cadastro.");
+    } finally {
+      setCarregando(false);
+    }
   }
 
   return (
@@ -56,6 +98,7 @@ function Cadastro({ onLogin }) {
         <form onSubmit={handleCadastro}>
           <div className="cadastro-input-group">
             <label htmlFor="nome">Nome</label>
+
             <input
               id="nome"
               type="text"
@@ -67,6 +110,7 @@ function Cadastro({ onLogin }) {
 
           <div className="cadastro-input-group">
             <label htmlFor="email">E-mail</label>
+
             <input
               id="email"
               type="email"
@@ -78,6 +122,7 @@ function Cadastro({ onLogin }) {
 
           <div className="cadastro-input-group">
             <label htmlFor="cep">CEP</label>
+
             <input
               id="cep"
               type="text"
@@ -90,6 +135,7 @@ function Cadastro({ onLogin }) {
 
           <div className="cadastro-input-group">
             <label htmlFor="senha">Senha</label>
+
             <input
               id="senha"
               type="password"
@@ -102,13 +148,15 @@ function Cadastro({ onLogin }) {
           <button
             type="submit"
             className="cadastro-button"
+            disabled={carregando}
           >
-            Criar conta
+            {carregando ? "Cadastrando..." : "Criar conta"}
           </button>
         </form>
 
         <div className="login-link">
           <span>Já tem uma conta?</span>
+
           <button onClick={onLogin}>
             Entrar
           </button>

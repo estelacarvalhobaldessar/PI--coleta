@@ -1,4 +1,5 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -36,7 +37,6 @@ try {
             
             $acao = $dados["acao"] ?? "";
             if ($acao === "cadastrar") {
-                    exit('oi');
                 $resultado = $usuario->Cadastrar(
                     $dados["nome"],
                     $dados["email"],
@@ -104,7 +104,7 @@ try {
     }
 
     echo json_encode($resultado);
-
+ 
 } catch (Exception $e) {
 
     http_response_code(500);
