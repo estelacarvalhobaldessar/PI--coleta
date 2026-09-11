@@ -1,0 +1,75 @@
+/* Configuração geral do layout */
+.app-container {
+    font-family: Arial, sans-serif;
+    position: relative;
+    
+  }
+  
+  /* Botão de ativação do menu */
+  .menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Estrutura inicial do menu (escondido fora da tela) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Largura total negativa para esconder à esquerda */
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    padding-top: 80px;
+    transition: left 0.3s ease-in-out; /* Efeito suave de deslize */
+    z-index: 99;
+  }
+  
+  /* Classe aplicada via JSX quando o estado isOpen for verdadeiro */
+  .sidebar.open {
+    left: 0; /* Traz o menu para dentro da tela */
+  }
+  
+  /* Estilização dos links do menu */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li a {
+    display: block;
+    padding: 15px 25px;
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  /* Fundo escurecido atrás do menu */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 98;
+  }
+  
+  /* Ajuste do conteúdo principal */
+  .main-content {
+    padding: 80px 20px 20px 20px;
+  }
+  
+  
