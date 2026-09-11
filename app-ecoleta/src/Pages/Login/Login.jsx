@@ -38,17 +38,13 @@ function Login({ onCadastro }) {
       // resultado
       const resultado = await resposta.text();
 
-      console.log("Resposta da API:", resultado);
-
-      if (!resposta.ok) {
-        alert("Erro na API: " + resultado);
-        return;
-      }
-
+      
       let dadosResposta;
       try {
         dadosResposta = JSON.parse(resultado);
+                console.log("Tentando fazer parse do resultado:", resultado);
       } catch {
+        console.log("Tentando fazer parse do resultado:", resultado);
         alert("A API retornou uma resposta inválida.");
         return;
       }
@@ -58,10 +54,7 @@ function Login({ onCadastro }) {
         return;
       }
 
-      alert(
-        dadosResposta.mensagem || "Login realizado com sucesso!"
-      );
-
+      alert(dadosResposta.mensagem || "Login realizado com sucesso!");
       console.log("Usuário logado:", dadosResposta.usuario);
 
     } catch (erro) {
