@@ -1,30 +1,29 @@
-
 import { useState } from "react";
-
+ 
 import "./Login.css";
-
+ 
 function Login({ onCadastro }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [carregando, setCarregando] = useState(false);
-
+ 
   async function handleLogin(event) {
     event.preventDefault();
-
+ 
     if (!email || !senha) {
       alert("Preencha todos os campos.");
       return;
     }
-
+ 
     try {
       setCarregando(true);
-
+ 
       const dados = {
         acao: "login",
         email: email,
         senha: senha
       };
-
+ 
       const resposta = await fetch(
         "http://localhost:8080/user-api-php/usuarios.php",
         {
@@ -37,26 +36,30 @@ function Login({ onCadastro }) {
       );
       // resultado
       const resultado = await resposta.text();
-
+ 
       
       let dadosResposta;
       try {
         dadosResposta = JSON.parse(resultado);
-                console.log("Tentando fazer parse do resultado:", resultado);
       } catch {
-        console.log("Tentando fazer parse do resultado:", resultado);
+        console.error("Resposta não JSON da API:", resposta.status, resultado);
         alert("A API retornou uma resposta inválida.");
         return;
       }
-
-      if (dadosResposta.sucesso === false) {
+ 
+      if (!resposta.ok) {
+        alert(dadosResposta.mensagem || `Erro na API (HTTP ${resposta.status}).`);
+        return;
+      }
+ 
+      if (dadosResposta.sucesso !== true) {
         alert(dadosResposta.mensagem || "E-mail ou senha inválidos.");
         return;
       }
-
+ 
       alert(dadosResposta.mensagem || "Login realizado com sucesso!");
       console.log("Usuário logado:", dadosResposta.usuario);
-
+ 
     } catch (erro) {
       console.error("Erro completo no login:", erro);
       alert("Não foi possível conectar com a API.");
@@ -64,20 +67,20 @@ function Login({ onCadastro }) {
       setCarregando(false);
     }
   }
-
+ 
   return (
     <main className="login-container">
       <div className="login-card">
         <h1>Bem-vindo de volta!</h1>
-
+ 
         <p className="login-subtitle">
           Acesse sua conta
         </p>
-
+ 
         <form onSubmit={handleLogin}>
           <div className="login-input-group">
             <label htmlFor="email">E-mail</label>
-
+ 
             <input
               id="email"
               type="email"
@@ -86,10 +89,10 @@ function Login({ onCadastro }) {
               onChange={(event) => setEmail(event.target.value)}
             />
           </div>
-
+ 
           <div className="login-input-group">
             <label htmlFor="senha">Senha</label>
-
+ 
             <input
               id="senha"
               type="password"
@@ -98,7 +101,7 @@ function Login({ onCadastro }) {
               onChange={(event) => setSenha(event.target.value)}
             />
           </div>
-
+ 
           <button
             type="submit"
             className="login-button"
@@ -107,14 +110,14 @@ function Login({ onCadastro }) {
             {carregando ? "Entrando..." : "Entrar"}
           </button>
         </form>
-
+ 
         <button className="forgot-password">
           Esqueceu a senha?
         </button>
-
+ 
         <div className="register-link">
           <span>Não tem uma conta?</span>
-
+ 
           <button onClick={onCadastro}>
             Criar uma conta
           </button>
@@ -123,5 +126,6 @@ function Login({ onCadastro }) {
     </main>
   );
 }
-
+ 
 export default Login;
+ 

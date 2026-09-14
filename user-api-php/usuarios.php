@@ -1,116 +1,154 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ 
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
-
-
+ 
+ 
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
-
+ 
 if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     exit;
 }
-
-require_once "./classes/Database.php";
-require_once "./classes/Usuarios.php";
-
-$database = new Database();
-$db = $database->conectar();
-
-$usuario = new Usuario($db);
-
+ 
 $metodo = $_SERVER["REQUEST_METHOD"];
-
-$dados = json_decode(
-    file_get_contents("php://input"),
-    true
-);
-
+ 
+$conteudo = file_get_contents("php://input");
+$dados = $conteudo === "" ? [] : json_decode($conteudo, true);
+ 
+if ($conteudo !== "" && !is_array($dados)) {
+    http_response_code(400);
+    echo json_encode([
+        "sucesso" => false,
+        "mensagem" => "JSON inválido."
+    ]);
+    exit;
+}
+ 
 try {
-
+    require_once __DIR__ . "/classes/Database.php";
+    require_once __DIR__ . "/classes/Usuarios.php";
+ 
+    $database = new Database();
+    $db = $database->conectar();
+    $usuario = new Usuario($db);
+ 
     switch ($metodo) {
-
+ 
         case "POST":
             
             $acao = $dados["acao"] ?? "";
             if ($acao === "cadastrar") {
+                if (empty($dados["nome"]) || empty($dados["email"]) || empty($dados["senha"])) {
+                    http_response_code(400);
+                    $resultado = [
+                        "sucesso" => false,
+                        "mensagem" => "Nome, e-mail e senha são obrigatórios."
+                    ];
+                    break;
+                }
+ 
                 $resultado = $usuario->Cadastrar(
                     $dados["nome"],
                     $dados["email"],
                     $dados["senha"]
                 );
             } elseif ($acao === "login") {
-
+                if (empty($dados["email"]) || empty($dados["senha"])) {
+                    http_response_code(400);
+                    $resultado = [
+                        "sucesso" => false,
+                        "mensagem" => "E-mail e senha são obrigatórios."
+                    ];
+                    break;
+                }
+ 
                 $resultado = $usuario->Logar(
                     $dados["email"],
                     $dados["senha"]
                 );
-
+ 
             } elseif ($acao === "recuperarSenha") {
-
+                if (empty($dados["email"]) || empty($dados["novaSenha"])) {
+                    http_response_code(400);
+                    $resultado = [
+                        "sucesso" => false,
+                        "mensagem" => "E-mail e nova senha são obrigatórios."
+                    ];
+                    break;
+                }
+ 
                 $resultado = $usuario->RecuperarSenha(
                     $dados["email"],
                     $dados["novaSenha"]
                 );
-
+ 
             } else {
-
+                http_response_code(400);
+ 
                 $resultado = [
                     "sucesso" => false,
                     "mensagem" => "Ação inválida."
                 ];
             }
-
+ 
             break;
-
-
+ 
+ 
         case "GET":
-
-            $id = intval($_GET["id"] ?? 0); 
+ 
+            $id = intval($_GET["id"] ?? 0);
             $resultado = $usuario->Visualizar($id);
-
+ 
             break;
-
-
+ 
+ 
         case "PUT":
-
+ 
             $resultado = $usuario->Alterar(
                 intval($dados["id"]),
                 $dados["nome"],
                 $dados["email"]
             );
-
+ 
             break;
-
-
+ 
+ 
         case "DELETE":
-
+ 
             $resultado = $usuario->Excluir(
                 intval($dados["id"])
             );
-
+ 
             break;
-
-
+ 
+ 
         default:
-
+            http_response_code(405);
+            header("Allow: POST, GET, PUT, DELETE, OPTIONS");
+ 
             $resultado = [
                 "sucesso" => false,
                 "mensagem" => "Método não permitido."
             ];
     }
-
-    echo json_encode($resultado);
  
-} catch (Exception $e) {
-
+} catch (Throwable $e) {
+ 
     http_response_code(500);
-
-    echo json_encode([
+    error_log("Erro na API de usuários: " . $e->getMessage());
+ 
+    $resultado = [
         "sucesso" => false,
         "mensagem" => "Erro interno do servidor."
-    ]);
+    ];
 }
+ 
+echo json_encode(
+    $resultado,
+    JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE
+);
+ 
