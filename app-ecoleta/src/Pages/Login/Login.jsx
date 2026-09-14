@@ -25,7 +25,7 @@ function Login({ onCadastro }) {
       };
  
       const resposta = await fetch(
-        "http://localhost:8080/user-api-php/usuarios.php",
+        "http://localhost:8080/truta/PI--coleta/user-api-php/usuarios.php",
         {
           method: "POST",
           headers: {
