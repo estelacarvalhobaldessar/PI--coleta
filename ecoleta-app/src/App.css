@@ -79,9 +79,63 @@ footer{
   top: 35px;
   margin: -12px 41%;
   color: white;
-  z-index: 999;
+  z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: lightgray;
+  }
+}
+@media (max-width: 600px) {
+  .caixa {
+    width: 80%; /* Aumenta a largura para ocupar mais espaço na tela */
+    height: auto; /* Ajusta a altura automaticamente */
+    bottom: 10px; /* Reduz a distância do rodapé */
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
+
+  .bola {
+    width: 80px; /* Reduz o tamanho da bola */
+    height: 80px;
+    border: 3px solid #A7D533; /* Ajusta a borda */
+    bottom: 50px; /* Ajusta a posição */
+    background-size: 40%; /* Reduz o tamanho da imagem */
+    margin-left: 10%;
+  }
+}
+@media (max-width: 600px) {
+  .mapa {
+    height: 750px; /* Reduz a altura do mapa */
+    background-size: cover; /* Garante que o mapa se ajuste à tela */
+  }
+}
+
+@media (max-width: 600px) {
+  .horario {
+    top: 50px; /* Ajusta a posição do horário */
+    margin: -12px 28%; /* Ajusta a margem para centralizar */
+    font-size: 14px; /* Reduz o tamanho da fonte */
+  }
+}
+
+@media (max-width: 600px) {
+  footer{
+    height: 132px; /* Aumenta a altura do rodapé */
+  }
+}
+@media (max-width: 600px) {
+  .sidebar {
+    position: fixed; /* Garante que a sidebar fique fixa na tela */
+    top: 0; /* Alinha ao topo da tela */
+    left: 0; /* Alinha à esquerda da tela */
+    width: 100%; /* Faz a sidebar ocupar toda a largura da tela */
+    height: 100%; /* Faz a sidebar ocupar toda a altura da tela */
+    z-index: 1000; /* Define um valor alto para garantir que fique na frente */
+    background-color: rgba(0, 0, 0, 0.8); /* Adiciona um fundo escuro semitransparente */
+  }
 }
