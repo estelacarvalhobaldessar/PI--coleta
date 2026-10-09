@@ -1,0 +1,13 @@
+{
+  "name": "ecoleta",
+  "private": true,
+  "description": "Atalhos para rodar o app (pasta app) a partir da raiz do projeto.",
+  "scripts": {
+    "postinstall": "npm --prefix app install",
+    "dev": "npm --prefix app run dev",
+    "build": "npm --prefix app run build",
+    "preview": "npm --prefix app run preview",
+    "test": "npm --prefix app test",
+    "lint": "npm --prefix app run lint"
+  }
+}

@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap");
+
+.pf {
+  --pf-bg: #eff4ee;
+  --pf-ink: #102b22;
+  --pf-muted: #5c716c;
+  --pf-line: #d7e0d6;
+  --pf-pine: #103c2e;
+  --pf-lime: #d8ef71;
+
+  min-height: 0;
+  overflow-y: auto;
+  padding: clamp(42px, 7vw, 104px) clamp(24px, 5vw, 86px);
+  background: var(--pf-bg);
+  color: var(--pf-ink);
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.4;
+}
+
+.pf *,
+.pf *::before,
+.pf *::after {
+  box-sizing: border-box;
+}
+
+.pf-navegacao {
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 clamp(54px, 7vw, 106px) auto;
+  padding: 5px;
+  border: 1px solid var(--pf-line);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.pf-navegacao button,
+.pf-aba-ativa {
+  padding: 14px clamp(19px, 2.2vw, 31px);
+  border: 0;
+  border-radius: 999px;
+  color: var(--pf-muted);
+  font: inherit;
+  font-size: clamp(15px, 1.45vw, 20px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pf-navegacao button { background: transparent; cursor: pointer; }
+.pf-aba-ativa { background: var(--pf-pine); color: #fff; }
+
+.pf-introducao { margin-bottom: clamp(40px, 4vw, 62px); }
+.pf-introducao h1 { margin: 0; font-size: clamp(38px, 4vw, 56px); line-height: 1.05; letter-spacing: -.04em; }
+.pf-introducao p { margin: 14px 0 0; color: var(--pf-muted); font-size: clamp(17px, 1.6vw, 22px); }
+
+.pf-conteudo { display: grid; grid-template-columns: minmax(270px, 480px) minmax(0, 1fr); gap: clamp(46px, 5.5vw, 78px); align-items: start; }
+.pf-cartao { position: relative; overflow: hidden; min-height: 468px; padding: 41px; border-radius: 42px; background: var(--pf-pine); color: #fff; }
+.pf-cartao::after { position: absolute; right: -104px; bottom: -120px; width: 294px; height: 294px; border: 52px solid rgba(72, 153, 113, .27); border-radius: 50%; content: ""; }
+.pf-avatar {
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--pf-lime);
+  color: var(--pf-pine);
+  font-size: 40px;
+  font-weight: 800;
+}
+.pf-cartao h2 { position: relative; z-index: 1; margin: 33px 0 3px; font-size: clamp(27px, 2.3vw, 38px); letter-spacing: -.035em; }
+.pf-cartao > p { position: relative; z-index: 1; margin: 0; color: #b8d6a9; font-size: clamp(16px, 1.35vw, 20px); overflow-wrap: anywhere; }
+.pf-estatisticas { position: relative; z-index: 1; display: flex; gap: clamp(32px, 4vw, 76px); margin: 51px 0 0; }
+.pf-estatisticas div { max-width: 150px; }
+.pf-estatisticas dt { color: var(--pf-lime); font-size: clamp(37px, 3.2vw, 54px); font-weight: 800; line-height: 1; }
+.pf-estatisticas dd { margin: 8px 0 0; color: #b8d6a9; font-size: clamp(15px, 1.3vw, 20px); }
+
+.pf-informacoes { padding-top: 9px; }
+.pf-informacoes-topo { display: flex; justify-content: space-between; gap: 24px; align-items: start; }
+.pf-informacoes h2 { margin: 0; font-size: clamp(28px, 2.6vw, 38px); letter-spacing: -.035em; }
+.pf-informacoes-topo p { margin: 10px 0 0; color: var(--pf-muted); font-size: clamp(16px, 1.35vw, 20px); }
+.pf-editar { flex: none; padding: 15px 28px; border: 2px solid var(--pf-pine); border-radius: 999px; background: transparent; color: var(--pf-pine); font: inherit; font-size: clamp(15px, 1.3vw, 18px); font-weight: 700; cursor: pointer; }
+.pf-dados { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; margin: 38px 0 0; }
+.pf-dados > div { min-height: 139px; padding: 0 0 25px; border-bottom: 2px solid var(--pf-line); }
+.pf-dados dt { font-size: clamp(16px, 1.3vw, 19px); font-weight: 700; }
+.pf-dados dd { margin: 31px 0 0; font-size: clamp(18px, 1.55vw, 23px); overflow-wrap: anywhere; }
+
+.pf button:focus-visible {
+  outline: 3px solid var(--pf-lime);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .pf { padding: 28px 20px 48px; }
+  .pf-navegacao { margin-bottom: 48px; }
+  .pf-navegacao button, .pf-aba-ativa { padding: 11px 15px; font-size: 14px; }
+  .pf-conteudo { grid-template-columns: 1fr; gap: 40px; }
+  .pf-cartao { min-height: 390px; padding: 30px; border-radius: 30px; }
+  .pf-estatisticas { margin-top: 40px; }
+  .pf-informacoes-topo { flex-direction: column; }
+  .pf-editar { width: 100%; }
+  .pf-dados { grid-template-columns: 1fr; margin-top: 30px; }
+  .pf-dados > div { min-height: auto; padding: 20px 0; }
+  .pf-dados dd { margin-top: 12px; }
+}

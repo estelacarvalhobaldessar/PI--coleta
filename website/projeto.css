@@ -1,0 +1,403 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    
+}
+
+html {
+  scroll-behavior: smooth;
+}
+ 
+:target {
+  scroll-margin-top: .8em;
+}
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.menu{
+    background-color: #152940;
+    width: 100%;
+    height: 100px;
+   
+}
+.menu nav.nav ul li a{
+  padding: 10px
+}
+.menu nav.nav ul li a:hover{
+  width: 105px;
+  height: 25px;
+  background-color: #A7D533;
+  border-radius: 20px;
+  color: white;
+}
+.box1{
+    width: 350px;
+    height: 175px;
+    float: left;
+    margin-top: 220px;
+    margin-left: 70px;
+    display: block;
+  }
+  .titulo{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+    padding: 0px;
+    margin-bottom: 30px;
+  }
+  .textinho{
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .botao{
+    background: none;
+    color: white;
+    border: none;
+    margin-top: 50px;
+    font-weight: 700;
+    padding: 10px 20px;
+  }
+  header .box1 .botao:hover{
+    width: 150px;
+    height: 40px;
+    background-color: #A7D533;
+    
+    border-radius: 20px;
+    cursor: pointer;
+  }
+ 
+  
+  a {
+      text-decoration: none;
+    }
+     
+    .nav {
+      max-width: 1280px;
+      height: 70px;
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+     
+    .logo {
+      margin-top: 45px;
+    }
+     
+    .nav-list {
+      display: flex;
+      gap: 29px;
+      list-style: none;
+      margin-right: 62px;
+      margin-top: 34px;
+    }
+     
+  .nav-list a {
+      font-size: 18px;
+      color: #fff;
+  }
+  .box {
+    position: relative;
+    width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 29, 53, 0.5);
+}
+
+.mapa {
+    width: 100%;
+    display: block;
+}
+
+/* --- CÍRCULO COM A IMAGEM --- */
+.circle {
+    position: absolute;
+    top: 50%;
+    margin-left:  198px;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    background-color: #148253;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle img {
+    width: 80%;
+    height: auto;
+}
+
+/* --- TÍTULO AO LADO DO CÍRCULO --- */
+.titulo {
+    position: absolute;
+    top: 20%;
+    left: 31%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    font-weight: Inter;
+    width: 40%;
+    line-height: 1.2;
+}
+.descricao {
+    position: absolute;
+    top: 36%;
+   margin-left: 444px;
+    background-color: #0B1D35;
+    color: white;
+    padding: 28px 27px;
+    border-radius: 16px;
+    width: 800px;
+    height: 210px;
+    font-size: 18px;
+    line-height: 1.6;    
+}
+.box2{
+    width: 100%;
+    height: 800px;
+    float: left;
+    display: block;
+    background-color: white;
+}
+.passoapasso{
+  margin-top: 60px;
+  margin-left: 100px;
+  
+}
+.exemplo{
+  font-size: 20px;
+  margin-left: 100px;
+  margin-top: 15px;
+  background-color: #A3D900; 
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 999px; 
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+
+}
+.poa{
+    width: 100%;
+    height: 650px;
+    float: left;
+    display: block;
+    
+    opacity: 0.5 ;
+}
+.linha{
+  margin-left: 200px;
+  margin-top: 48px;
+  width: 70%;
+  height:40%;
+  display: block;
+}
+.circle1{
+  width: 135px;
+  height: 135px;
+  background-color:#148253;
+  border-radius: 50%;
+  margin-top: -10px;
+  margin-left: 98px;
+  box-shadow: 0 0 5px black;
+  background-image: url("./img/icons/icon_separar.png");
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+.numero1{
+  height: 2px;
+  width: 50px;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 250px;
+  font-size: larger;
+  color: #148253;
+}
+.texto1{
+  position: absolute;
+  font-size: small;
+  font-weight: bold;
+  height: 330px;
+  width: 330px;
+  margin-top: 150px;  
+  margin-left: 80px;
+  }
+.numero2{
+  position: absolute;
+  margin-top: -200px;
+  margin-left: 750px;
+  font-size: larger;
+  color: #148253;
+}
+.texto2{
+  position: absolute;
+  font-size: small;
+  font-weight: bold;
+  height: 350px;
+  width: 350px;
+  margin-left: 750px;
+  margin-top: -70px;
+}
+.numero3{
+  position: absolute;
+  margin-top: -150px;
+  margin-left: 76%;
+  font-size: larger;
+  color: #148253;
+}
+.texto3{
+  position: absolute;
+  font-size: small;
+  font-weight: bold;
+  height: 330px;
+  width: 330px;
+  margin-top: -70px;
+  margin-left: 60%;
+}
+
+.circle2{
+  width: 135px;
+  height: 135px;
+  background-color:#148253;
+  border-radius: 50%;
+  margin-top: -570px;
+  margin-left: 1237px;
+  box-shadow: 0 0 5px black;
+  background-image: url("./img/icons/icon_coletar.png");
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+.circle3{
+  width: 135px;
+  height: 135px;
+  background-color:#148253;
+  border-radius: 50%;
+  margin-top: 201px;
+  margin-left: 830px;
+  box-shadow: 0 0 5px black;
+  background-image: url("./img/icons/icon_reciclar.png");
+  background-size: cover;
+  background-position: center;
+  display: block;
+}

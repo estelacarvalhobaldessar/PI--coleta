@@ -1,0 +1,4 @@
+# O projeto fica dentro da pasta do Apache: impede que o .env (com os segredos) seja baixado pelo navegador.
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>

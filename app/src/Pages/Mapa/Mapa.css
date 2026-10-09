@@ -1,0 +1,424 @@
+/* =========================
+   ESTRUTURA: topo, mapa e painel inferior
+   ========================= */
+
+.app {
+  display: grid;
+  grid-template-rows: var(--altura-topo) minmax(0, 1fr) var(--altura-painel);
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--azul-noite);
+}
+
+/* =========================
+   TOPO
+   ========================= */
+
+.topo {
+  position: relative;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 calc(var(--gutter) - 6px) 0 var(--gutter);
+  background: var(--azul-noite);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--branco);
+  font-size: var(--marca-fonte);
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-decoration: none;
+}
+
+.marca:focus-visible {
+  outline: 2px solid var(--lima);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.marca-icone {
+  width: var(--marca-icone);
+  height: var(--marca-icone);
+  object-fit: contain;
+}
+
+/* =========================
+   MAPA
+   ========================= */
+
+.mapa-area {
+  position: relative;
+  z-index: 0;
+  min-height: 0;
+  isolation: isolate;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  background: var(--mapa-fundo);
+}
+
+/* Tom creme do mapa, como no layout */
+.map .leaflet-tile-pane {
+  filter: grayscale(.45) sepia(.38) saturate(.95) brightness(1.06) contrast(.9);
+}
+
+.map .leaflet-control-attribution {
+  font-size: 10px;
+}
+
+.truck-icon.leaflet-div-icon,
+.bin-icon.leaflet-div-icon {
+  border: 0;
+  background: transparent;
+}
+
+.truck-marker,
+.bin-marker {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+}
+
+.aviso {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: calc(100% - 2 * var(--gutter));
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(28, 37, 65, .94);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  color: var(--branco);
+  font-size: 13px;
+  transform: translateX(-50%);
+}
+
+.aviso-botao {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border: 1px solid var(--lima);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--lima);
+  cursor: pointer;
+}
+
+/* =========================
+   PAINEL INFERIOR
+   ========================= */
+
+.painel {
+  position: relative;
+  z-index: 1100;
+  background: var(--azul-noite);
+}
+
+.painel-folhas {
+  position: absolute;
+  bottom: -2px;
+  z-index: 0;
+  width: auto;
+  height: 82%;
+  max-width: 44%;
+  object-fit: contain;
+  object-position: left bottom;
+  pointer-events: none;
+  user-select: none;
+}
+
+.painel-folhas-esq {
+  left: -10px;
+}
+
+.painel-folhas-dir {
+  right: -10px;
+  transform: scaleX(-1);
+}
+
+/* Bola com o caminhão: metade sobre o mapa, metade sobre o painel */
+.painel-bola {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: var(--bola);
+  height: var(--bola);
+  border: calc(var(--bola) * .045) solid var(--verde);
+  border-radius: 50%;
+  background: var(--creme);
+  box-shadow: 0 0 0 3px var(--creme), 0 8px 20px rgba(0, 0, 0, .3);
+  transform: translate(-50%, -50%);
+}
+
+.painel-bola img {
+  width: 64%;
+  height: auto;
+}
+
+.painel-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .55);
+}
+
+.painel-rotulo {
+  margin: 0;
+  font-size: var(--rotulo);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.painel-valor {
+  margin: 0;
+  color: var(--lima);
+  font-size: var(--valor);
+  font-weight: 700;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Celular e tablet: carrossel com setas */
+.painel-carrossel {
+  position: absolute;
+  inset: 0;
+}
+
+.painel-carrossel .painel-info {
+  position: absolute;
+  top: calc(var(--bola) * .5 + 10px);
+  left: var(--gutter);
+  right: var(--gutter);
+  animation: painel-entrar .3s ease;
+}
+
+.painel-seta {
+  position: absolute;
+  top: calc((var(--bola) * .5 - var(--seta)) / 2 + 4px);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--seta);
+  height: var(--seta);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--branco);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.painel-seta:first-child {
+  left: calc(50% - var(--bola) / 2 - var(--seta) - 14px);
+}
+
+.painel-seta:last-child {
+  right: calc(50% - var(--bola) / 2 - var(--seta) - 14px);
+}
+
+.painel-seta svg {
+  width: 62%;
+  height: 62%;
+}
+
+.painel-seta:hover {
+  background: rgba(255, 255, 255, .1);
+  color: var(--lima);
+}
+
+.painel-seta:focus-visible {
+  outline: 2px solid var(--lima);
+  outline-offset: 2px;
+}
+
+@keyframes painel-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Desktop em diante: os três dados lado a lado, sem setas */
+.painel-estatisticas {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .painel-carrossel {
+    display: none;
+  }
+
+  .painel-estatisticas {
+    position: absolute;
+    top: calc(var(--bola) * .5 + 8px);
+    left: 50%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    gap: clamp(40px, 6vw, 180px);
+    width: min(100% - 2 * var(--gutter), 1200px);
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  .painel-estatisticas .painel-info:first-child {
+    justify-self: end;
+  }
+
+  .painel-estatisticas .painel-info:last-child {
+    justify-self: start;
+  }
+
+  .painel-estatisticas .painel-info:not(.painel-info-principal) .painel-rotulo {
+    font-weight: 500;
+    opacity: .85;
+  }
+
+  .painel-estatisticas .painel-info:not(.painel-info-principal) .painel-valor {
+    font-size: calc(var(--valor) * .72);
+  }
+
+  .painel-folhas {
+    height: 100%;
+    max-width: 30%;
+  }
+}
+
+/* =========================
+   CONTROLES DO MAPA (zoom e acompanhar caminhão)
+   ========================= */
+
+.mapa-controles {
+  position: absolute;
+  right: calc(var(--gutter) - 4px);
+  bottom: 28px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--azul-noite);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+
+.mapa-controle {
+  display: grid;
+  place-items: center;
+  width: var(--controle);
+  height: var(--controle);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--branco);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.mapa-controle + .mapa-controle {
+  border-top: 1px solid rgba(255, 255, 255, .18);
+}
+
+.mapa-controle svg {
+  width: 52%;
+  height: 52%;
+}
+
+.mapa-controle:hover:not(:disabled) {
+  background: var(--azul-noite-claro);
+}
+
+.mapa-controle:focus-visible {
+  outline: 2px solid var(--lima);
+  outline-offset: -3px;
+}
+
+.mapa-controle:disabled {
+  color: rgba(255, 255, 255, .35);
+  cursor: default;
+}
+
+/* Acompanhamento ligado */
+.mapa-controle-seguir[aria-pressed='true'] {
+  background: var(--lima);
+  color: var(--azul-noite);
+}
+
+.mapa-controle-seguir[aria-pressed='true']:hover {
+  background: #b8e24a;
+}
+
+/* Celular: a atribuição do mapa sobe para não ficar atrás da bola */
+@media (max-width: 599px) {
+  .mapa-area .leaflet-bottom.leaflet-right {
+    top: 0;
+    bottom: auto;
+  }
+
+  .aviso {
+    top: 26px;
+  }
+}
+
+/* Celular deitado: dado mais perto da bola para caber na altura */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 1023px) {
+  .painel-carrossel .painel-info {
+    top: calc(var(--bola) * .5 + 4px);
+  }
+}
+
+/* Páginas do menu (Mudar Local, Col. Seletiva, Configurações): topo + conteúdo, sem o painel da rota */
+.app-pagina {
+  grid-template-rows: var(--altura-topo) minmax(0, 1fr);
+}
+
+.app-pagina .auth {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* A página de perfil segue a identidade clara do layout de conta. */
+.app-perfil {
+  background: #eff4ee;
+}
+
+.topo-perfil {
+  background: #eff4ee;
+  box-shadow: none;
+}
+
+.topo-perfil .marca {
+  color: #102b22;
+}
+
+.app-perfil .menu-btn,
+.app-perfil .sidebar,
+.app-perfil .overlay {
+  display: none;
+}

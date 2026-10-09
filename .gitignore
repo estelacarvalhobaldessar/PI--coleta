@@ -1,0 +1,61 @@
+# =========================
+# Écoleta — arquivos que não vão para o Git
+# =========================
+
+# Dependências e build do app (React + Express)
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# O .env da raiz É versionado (configuração única do app, da api e do website).
+# Variações locais, não:
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache de ferramentas
+.eslintcache
+coverage/
+
+# ============================================================================
+# Sistema Operacional - Windows
+# ============================================================================
+Thumbs.db
+desktop.ini
+
+# ============================================================================
+# Sistema Operacional - macOS
+# ============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.TemporaryItems
+.VolumeIcon.icns
+Icon?
+.CFUserTextEncoding
+
+# ============================================================================
+# Editores e IDEs
+# ============================================================================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.sw?
+*.swp
+.vim/
+.project
+.classpath
+.c9/
+*.tern-port

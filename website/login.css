@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+ 
+  body {
+    background-color: #0b1d35;
+    color: white;
+  }
+ 
+ 
+ 
+ 
+  .menu{
+      background-color: #152940;
+      width: 100%;
+      height: 100px;
+  }
+  a {
+      font-family: sans-serif;
+      text-decoration: none;
+    }
+     
+    .nav {
+      max-width: 1280px;
+      height: 70px;
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+     
+    .logo {
+      margin-top: 45px;
+    }
+     
+    .nav-list {
+      display: flex;
+      gap: 29px;
+      list-style: none;
+      margin-right: 62px;
+      margin-top: 34px;
+    }
+     
+    .nav-list a {
+      font-size: 18px;
+      color: #fff;
+    }
+    .menu nav.nav ul li a{
+      padding: 10px
+    }
+    .menu nav.nav ul li a:hover{
+      width: 105px;
+      height: 25px;
+      background-color: #A7D533;
+      border-radius: 20px;
+      color: white;
+    }
+ 
+  .main {
+    position: relative;
+    height: 100vh;
+    background-image: url(./img/paisagem/redencao.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 29, 53, 0.7);
+  }
+ 
+ 
+  .form-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(11, 29, 53, 0.95);
+    padding: 40px 50px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+ 
+  .form-cadastro h2 {
+    margin-bottom: 10px;
+  }
+ 
+  .form-cadastro p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #ccc;
+  }
+ 
+  label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+ 
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+  }
+ 
+  button {
+    width: 50%;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    background-color: #9dfc3b;
+    color: #0b1d35;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  button:hover {
+    background-color: #84db2f;
+  }
+ 

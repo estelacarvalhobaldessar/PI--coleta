@@ -1,0 +1,128 @@
+/* =========================
+   MENU (hambúrguer + painel lateral direito)
+   ========================= */
+
+.app-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Botão hambúrguer: três barras que viram um X quando o menu abre */
+.menu-btn {
+  position: relative;
+  z-index: 1300;
+  display: grid;
+  place-content: center;
+  gap: var(--menu-barra-gap);
+  width: var(--menu-btn);
+  height: var(--menu-btn);
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, .08);
+}
+
+.menu-btn:focus-visible {
+  outline: 2px solid var(--lima);
+  outline-offset: 2px;
+}
+
+.menu-btn-barra {
+  display: block;
+  width: var(--menu-barra-largura);
+  height: 3px;
+  border-radius: 3px;
+  background: var(--branco);
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+.menu-btn.open .menu-btn-barra:nth-child(1) {
+  transform: translateY(calc(var(--menu-barra-gap) + 3px)) rotate(45deg);
+}
+
+.menu-btn.open .menu-btn-barra:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open .menu-btn-barra:nth-child(3) {
+  transform: translateY(calc(-1 * (var(--menu-barra-gap) + 3px))) rotate(-45deg);
+}
+
+/* Painel do menu: desliza da direita, logo abaixo do topo */
+.sidebar {
+  position: fixed;
+  top: var(--altura-topo);
+  right: 0;
+  z-index: 1250;
+  width: var(--menu-largura);
+  max-height: calc(100dvh - var(--altura-topo));
+  overflow-y: auto;
+  background: var(--azul-noite);
+  box-shadow: -8px 12px 28px rgba(0, 0, 0, .35);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform .3s ease-in-out, visibility 0s linear .3s;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform .3s ease-in-out, visibility 0s;
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar ul li a {
+  position: relative;
+  display: block;
+  padding: var(--menu-item-padding);
+  border-bottom: 1px solid rgba(255, 255, 255, .7);
+  color: var(--branco);
+  font-size: var(--menu-fonte);
+  font-weight: 400;
+  text-decoration: none;
+  transition: background .2s, padding-left .2s;
+}
+
+.sidebar ul li a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--lima);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus-visible {
+  outline: none;
+  background: var(--azul-noite-claro);
+  padding-left: calc(var(--menu-item-padding-x) + 6px);
+}
+
+.sidebar ul li a:hover::before,
+.sidebar ul li a:focus-visible::before {
+  opacity: 1;
+}
+
+/* Fundo escurecido atrás do menu */
+.overlay {
+  position: fixed;
+  inset: var(--altura-topo) 0 0 0;
+  z-index: 1200;
+  background: rgba(10, 14, 28, .4);
+}

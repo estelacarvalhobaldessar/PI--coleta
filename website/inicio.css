@@ -1,0 +1,523 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    
+}
+
+html {
+  scroll-behavior: smooth;
+}
+ 
+:target {
+  scroll-margin-top: .8em;
+}
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.header{
+    width: 100%;
+    height: 620px;
+    background-color: white;
+    background-image: url(./img/paisagem/redencao.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.menu{
+    background-color: #152940;
+    width: 100%;
+    height: 100px;
+}
+.menu nav.nav ul li a{
+  padding: 10px
+}
+.menu nav.nav ul li a:hover{
+  width: 105px;
+  height: 25px;
+  background-color: #A7D533;
+  border-radius: 20px;
+  color: white;
+}
+.box1{
+  width: 350px;
+  height: 175px;
+  float: left;
+  margin-top: 220px;
+  margin-left: 70px;
+  display: block;
+}
+.titulo{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: left;
+  padding: 0px;
+  margin-bottom: 30px;
+}
+.textinho{
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.botao{
+  background: none;
+  color: white;
+  border: none;
+  margin-top: 50px;
+  font-weight: 700;
+  padding: 10px 20px;
+}
+header .box1 .botao:hover{
+  width: 150px;
+  height: 40px;
+  background-color: #A7D533;
+  
+  border-radius: 20px;
+  cursor: pointer;
+}
+.circulos{
+  width: 125px;
+  height: 500px;
+  float: right;
+  margin-right: 70px;
+}
+.circulo1{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border:1px solid white;
+  background-color: rgba(255, 255, 255, 0.105);
+  float: right;
+  margin-top: 60px;
+}
+.separar{
+  width: 125px;
+  height: 125px;
+}
+.circulo2{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border:1px solid white;
+  background-color: rgba(255, 255, 255, 0.105);
+  float: right;
+  margin-top: -15px;
+}
+.reciclar{
+  width: 125px;
+  height: 125px;
+}
+.circulo3{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border:1px solid white;
+  background-color: rgba(255, 255, 255, 0.105);
+  float: right;
+  margin-top: -15px;
+}
+.coletar{
+  width: 125px;
+  height: 125px;
+}
+a {
+    text-decoration: none;
+  }
+   
+  .nav {
+    max-width: 1280px;
+    height: 70px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+   
+  .logo {
+    margin-top: 45px;
+  }
+   
+  .nav-list {
+    display: flex;
+    gap: 29px;
+    list-style: none;
+    margin-right: 62px;
+    margin-top: 34px;
+  }
+   
+.nav-list a {
+    font-size: 18px;
+    color: #fff;
+}
+
+  .saibamais{
+    font-size: 18px;
+    color: white;
+    margin-left: 37px;
+    margin-top: 15px;
+  }
+  .instale{
+    font-size: 18px;
+    color: white;
+    margin-left: 157px;
+    margin-top: -10px;
+  } 
+.container1 {
+    background: #EEE5DD;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.caixona{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.valores{
+  height: 50px;
+  width: 425px;
+  display: block;
+  align-items: center;
+  margin-top: 25px;
+}
+.nosso-valores{
+  color: #152940;
+  font-size: 45px;
+  text-align: center;
+}
+.caixona2{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+}
+.caixa-esquerda{
+  float: left;
+  height:400px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.caixa1{
+  width: 250px;
+  height: 250px;
+  border-radius: 25px;
+  background-color:#152940;
+  display: block;
+}
+.reciclar1{
+  width: 115px;
+  height: 115px;
+  background-color:#148253;
+  border-radius: 50%;
+  margin-top: -50px;
+  margin-left: 65px;
+  box-shadow: 0 0 5px black;
+}
+.reciclar-esquerda{
+  width: 115px;
+  height: 115px;
+}
+.caixa-centro{
+  float: center;
+  height:400px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.separar-tittle{
+  font-size: 22px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.caixa2{
+  width: 250px;
+  height: 250px;
+  border-radius: 25px;
+  background-color:#152940;
+  display: block;
+}
+.caminhao1{
+  width: 115px;
+  height: 115px;
+  background-color:#148253;
+  border-radius: 50%;
+  margin-top: -50px;
+  margin-left: 65px;
+  box-shadow: 0 0 5px black;
+}
+.caminhao-centro{
+  width: 115px;
+  height: 115px;
+}
+.coletar-tittle{
+  font-size: 25px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.caixa-direita{
+  float: right;
+  height:400px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.caixa3{
+  width: 250px;
+  height: 250px;
+  border-radius: 25px;
+  background-color:#152940;
+  display: block;
+}
+.lixo1{
+  width: 115px;
+  height: 115px;
+  background-color:#148253;
+  border-radius: 50%;
+  margin-top: -50px;
+  margin-left: 65px;
+  box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+.lixo-direita{
+  width: 115px;
+  height: 115px;
+}
+.reciclar-tittle{
+  font-size: 25px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.bola1{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: white;
+}
+.separar-text{
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+.coletar-text{
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+.reciclar-text{
+  color: white;
+  text-align: center;
+  font-size: 15px;
+
+}
+.container2 {
+  background-color: #148253;
+  width: 100%;
+  height: 365px;
+}
+
+/* mantém tua classe */
+.equipe-tittle {
+  font-size: 45px;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* NOVO contêiner apenas para alinhar cards */
+.cards-equipe {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* mantém tua classe */
+.retangulo1 {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+}
+
+/* mantém tua classe */
+.retangulozinho {
+  width: 220px;
+  background-color: #152940;
+  border-radius: 50px;
+  height: 400px;
+  text-align: center;
+  color: white;
+  margin-top: -20px;
+}
+
+/* foto redonda */
+.foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.nome {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.bio {
+  font-size: 13px;
+  margin: 10px 0 15px;
+}
+
+.github {
+  width: 32px;
+}
+.container3{
+  background-color:#EEE5DD;
+  width: 100%;
+  height: 250px;
+  display: block;
+  float: left;
+}
+
+footer{
+  background-color:#152940;
+  width: 100%;
+  padding:1rem;
+}
+.central-footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 1rem;
+}
+hr{
+  width: 30%;
+}
+
+.ecoleta-footer{
+  color:  #148253;
+}

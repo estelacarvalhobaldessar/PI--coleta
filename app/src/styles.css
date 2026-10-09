@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* =========================
+   CORES E MEDIDAS
+   Os tamanhos mudam por faixa de tela: celular (padrão), tablet,
+   desktop, monitor grande e ultrawide. Celular deitado tem regra própria.
+   ========================= */
+
+:root {
+  --azul-noite: #1c2541;
+  --azul-noite-claro: #283462;
+  --verde: #2e8b3a;
+  --lima: #a7d533;
+  --creme: #f7f4ee;
+  --branco: #ffffff;
+  --mapa-fundo: #f3ede2;
+
+  --gutter: 16px;
+  --altura-topo: 56px;
+  --altura-painel: 148px;
+  --bola: 104px;
+  --seta: 40px;
+  --controle: 42px;
+  --rotulo: 13px;
+  --valor: 26px;
+  --marca-icone: 30px;
+  --marca-fonte: 13px;
+
+  --menu-btn: 44px;
+  --menu-barra-largura: 26px;
+  --menu-barra-gap: 5px;
+  --menu-largura: min(70vw, 240px);
+  --menu-fonte: 14px;
+  --menu-item-padding-x: 20px;
+  --menu-item-padding: 15px var(--menu-item-padding-x);
+
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: var(--branco);
+  background: var(--azul-noite);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  :root {
+    --gutter: 24px;
+    --altura-topo: 64px;
+    --altura-painel: 172px;
+    --bola: 124px;
+    --seta: 44px;
+    --rotulo: 15px;
+    --valor: 30px;
+    --marca-icone: 36px;
+    --marca-fonte: 15px;
+    --menu-largura: 280px;
+    --menu-fonte: 15px;
+    --menu-item-padding-x: 24px;
+    --menu-item-padding: 17px var(--menu-item-padding-x);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 28px;
+    --altura-topo: 72px;
+    --altura-painel: 156px;
+    --bola: 128px;
+    --rotulo: 14px;
+    --valor: 30px;
+    --marca-icone: 40px;
+    --marca-fonte: 17px;
+    --menu-largura: 300px;
+    --menu-fonte: 16px;
+  }
+}
+
+/* Monitor grande (Full HD e acima) */
+@media (min-width: 1600px) {
+  :root {
+    --gutter: 40px;
+    --altura-topo: 80px;
+    --altura-painel: 172px;
+    --bola: 144px;
+    --rotulo: 16px;
+    --valor: 34px;
+    --marca-icone: 44px;
+    --marca-fonte: 19px;
+    --menu-btn: 50px;
+    --controle: 48px;
+    --menu-barra-largura: 30px;
+    --menu-barra-gap: 6px;
+    --menu-largura: 340px;
+    --menu-fonte: 17px;
+    --menu-item-padding-x: 28px;
+    --menu-item-padding: 19px var(--menu-item-padding-x);
+  }
+}
+
+/* Ultrawide / 4K */
+@media (min-width: 2400px) {
+  :root {
+    --gutter: 56px;
+    --altura-topo: 96px;
+    --altura-painel: 204px;
+    --bola: 176px;
+    --seta: 56px;
+    --controle: 56px;
+    --rotulo: 19px;
+    --valor: 42px;
+    --marca-icone: 54px;
+    --marca-fonte: 23px;
+    --menu-btn: 58px;
+    --menu-barra-largura: 36px;
+    --menu-barra-gap: 7px;
+    --menu-largura: 400px;
+    --menu-fonte: 20px;
+    --menu-item-padding-x: 34px;
+    --menu-item-padding: 23px var(--menu-item-padding-x);
+  }
+}
+
+/* Celular deitado: pouca altura, então topo e painel encolhem */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 1023px) {
+  :root {
+    --altura-topo: 48px;
+    --altura-painel: 96px;
+    --bola: 72px;
+    --seta: 34px;
+    --controle: 36px;
+    --rotulo: 12px;
+    --valor: 20px;
+    --marca-icone: 26px;
+    --menu-btn: 40px;
+    --menu-item-padding: 11px var(--menu-item-padding-x);
+  }
+}
+
+/* =========================
+   BASE
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-width: 320px;
+  height: 100%;
+}
+
+body {
+  background: var(--azul-noite);
+}
+
+button {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
