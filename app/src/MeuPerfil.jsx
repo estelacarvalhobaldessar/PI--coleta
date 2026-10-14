@@ -1,6 +1,5 @@
 import "./Meu perfil.css";
 
-
 function iniciais(nome = "") {
   return nome
     .split(" ")
@@ -45,10 +44,6 @@ export default function MeuPerfil({ usuario, endereco, onAbrirConfiguracoes = ()
           <div className="pf-avatar" aria-label={`Iniciais de ${nome}`}>{iniciais(nome)}</div>
           <h2>{nome}</h2>
           <p>{usuario?.email || "E-mail não informado"}</p>
-          <dl className="pf-estatisticas">
-            <div><dt>{pontos}</dt><dd>pontos acumulados</dd></div>
-            <div><dt>{descartes}</dt><dd>descartes conscientes</dd></div>
-          </dl>
         </aside>
 
         <section className="pf-informacoes" aria-labelledby="pf-informacoes-titulo">
