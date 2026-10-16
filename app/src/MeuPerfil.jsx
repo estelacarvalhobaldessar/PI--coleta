@@ -1,3 +1,4 @@
+
 import "./Meu perfil.css";
 
 function iniciais(nome = "") {
@@ -16,44 +17,89 @@ function formatarEndereco(endereco) {
   return partes.length ? partes.join(", ") : "Endereço não informado";
 }
 
-export default function MeuPerfil({ usuario, endereco, onAbrirConfiguracoes = () => {} }) {
+export default function MeuPerfil({
+  usuario,
+  endereco,
+  onAbrirConfiguracoes = () => {},
+}) {
   const nome = usuario?.nome || "Usuário";
-  const pontos = Number.isFinite(Number(usuario?.pontos)) ? usuario.pontos : 0;
-  const descartes = Number.isFinite(Number(usuario?.descartes)) ? usuario.descartes : 0;
+
   const dados = [
     { valor: nome, rotulo: "Nome completo" },
-    { valor: usuario?.email || "E-mail não informado", rotulo: "E-mail" },
-    { valor: endereco?.cep || "CEP não informado", rotulo: "CEP" },
-    { valor: formatarEndereco(endereco), rotulo: "Cidade" },
+    {
+      valor: usuario?.email || "E-mail não informado",
+      rotulo: "E-mail",
+    },
+    {
+      valor: endereco?.cep || "CEP não informado",
+      rotulo: "CEP",
+    },
+    {
+      valor: formatarEndereco(endereco),
+      rotulo: "Cidade",
+    },
   ];
 
   return (
     <main className="pf">
-      <nav className="pf-navegacao" aria-label="Navegação do perfil">
-        <span className="pf-aba-ativa" aria-current="page">Perfil</span>
-        <button type="button" onClick={onAbrirConfiguracoes}>Configurações</button>
-      </nav>
+      <div className="pf-cabecalho">
+        <header className="pf-introducao">
+          <h1>Meu perfil</h1>
+          <p>Consulte e atualize suas informações pessoais.</p>
+        </header>
 
-      <header className="pf-introducao">
-        <h1>Meu perfil</h1>
-        <p>Consulte e atualize suas informações pessoais.</p>
-      </header>
+        <nav
+          className="pf-navegacao"
+          aria-label="Navegação do perfil"
+        >
+          <span className="pf-aba-ativa" aria-current="page">
+            Perfil
+          </span>
+
+          <button
+            type="button"
+            onClick={onAbrirConfiguracoes}
+          >
+            Configurações
+          </button>
+        </nav>
+      </div>
 
       <section className="pf-conteudo" aria-label="Dados do perfil">
         <aside className="pf-cartao">
-          <div className="pf-avatar" aria-label={`Iniciais de ${nome}`}>{iniciais(nome)}</div>
+          <div className="pf-avatar" aria-label={`Iniciais de ${nome}`}>
+            {iniciais(nome)}
+          </div>
+
           <h2>{nome}</h2>
+
           <p>{usuario?.email || "E-mail não informado"}</p>
         </aside>
 
-        <section className="pf-informacoes" aria-labelledby="pf-informacoes-titulo">
+        <section
+          className="pf-informacoes"
+          aria-labelledby="pf-informacoes-titulo"
+        >
           <div className="pf-informacoes-topo">
             <div>
-              <h2 id="pf-informacoes-titulo">Informações pessoais</h2>
-              <p>Usamos esses dados para personalizar sua experiência.</p>
+              <h2 id="pf-informacoes-titulo">
+                Informações pessoais
+              </h2>
+
+              <p>
+                Usamos esses dados para personalizar sua experiência.
+              </p>
             </div>
-            <button type="button" className="pf-editar" onClick={onAbrirConfiguracoes}>Editar perfil</button>
+
+            <button
+              type="button"
+              className="pf-editar"
+              onClick={onAbrirConfiguracoes}
+            >
+              Editar perfil
+            </button>
           </div>
+
           <dl className="pf-dados">
             {dados.map((dado) => (
               <div key={dado.rotulo}>

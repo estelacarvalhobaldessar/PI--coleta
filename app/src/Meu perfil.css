@@ -8,13 +8,10 @@
   --pf-pine: #103c2e;
   --pf-lime: #d8ef71;
 
-  min-height: 0;
   overflow-y: auto;
-  padding: clamp(42px, 7vw, 104px) clamp(24px, 5vw, 86px);
-  background: var(--pf-bg);
+ padding: 20px clamp(24px, 5vw, 86px) 60px;
   color: var(--pf-ink);
   font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
-  line-height: 1.4;
 }
 
 .pf *,
@@ -23,11 +20,18 @@
   box-sizing: border-box;
 }
 
+.pf-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: clamp(40px, 4vw, 62px);
+}
+
 .pf-navegacao {
   display: flex;
   width: max-content;
-  margin: 0 0 clamp(54px, 7vw, 106px) auto;
-  padding: 5px;
+  margin: 0;
   border: 1px solid var(--pf-line);
   border-radius: 999px;
   background: #fff;
@@ -55,7 +59,7 @@ color: #fff;
 }
 
 .pf-introducao {
- margin-bottom: clamp(40px, 4vw, 62px); 
+ margin-bottom: 0; 
 }
 .pf-introducao h1 {
  font-size: clamp(38px, 4vw, 56px); 
@@ -76,7 +80,7 @@ color: #fff;
 .pf-cartao { 
 position: relative;
  overflow: hidden;
- padding: 41px;
+ padding: 54px;
   border-radius: 42px;
  background: var(--pf-pine);
  color: #fff; 
@@ -138,6 +142,7 @@ font-size: clamp(15px, 1.3vw, 20px);
 
 .pf-informacoes { padding-top: 9px; }
 .pf-informacoes-topo { 
+  display: flex;
   justify-content: space-between;
    gap: 24px;
    align-items: start; 
@@ -197,6 +202,11 @@ cursor: pointer;
    padding: 11px 15px;
    font-size: 14px; 
   }
+  .pf-cabecalho {
+  flex-direction: column;
+  align-items: flex-start;
+
+}
   .pf-conteudo {
      grid-template-columns: 1fr; 
      gap: 40px;
